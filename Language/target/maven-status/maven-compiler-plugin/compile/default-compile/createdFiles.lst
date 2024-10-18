@@ -1,0 +1,7 @@
+Lesson\Lesson.class
+Lesson\LessonPlan.class
+com\mycompany\language\Language.class
+Exercices\Exercice.class
+Lesson\GrammerLesson.class
+com\mycompany\language\MyException.class
+Lesson\VocabularyLesson.class
