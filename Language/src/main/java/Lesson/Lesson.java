@@ -4,6 +4,7 @@
  */
 package Lesson;
 
+import com.mycompany.language.MyException;
 import java.util.Scanner;
 
 /**
@@ -30,8 +31,8 @@ public abstract class Lesson {
     }
     abstract void startLesson();
     abstract void ajouter();
-    abstract void update(int index);
-    abstract void delete(int index );
+    abstract void update(int index) throws MyException;;
+    abstract void delete(int index ) throws MyException;
     public void saisir()
     {
         System.out.println("Veuillez saisir les données de la lesson");
@@ -62,6 +63,7 @@ public abstract class Lesson {
     public String getDescription(){
         return description;
     };
+    @Override
     public String toString()
     {
         return "the lesson's name :"+title+"\n la description est : "+description ;

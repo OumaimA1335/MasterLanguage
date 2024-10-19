@@ -67,6 +67,7 @@ public class GrammerLesson extends Lesson {
         grammerRules.replace(index, new StringBuffer(sc.nextLine()));
     }
 
+    @Override
     public void delete(int index) throws MyException {
         if (index > grammerRules.size()) {
             throw new MyException("ce élément n'existe pas");
