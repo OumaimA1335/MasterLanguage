@@ -61,12 +61,17 @@ public class GrammerLesson extends Lesson {
 
     }
 
-    public void update(int index) {
-
-        System.out.println("Saisir le nouvelle mot modifieé  :");
-        grammerRules.replace(index, new StringBuffer(sc.nextLine()));
+    @Override
+    public void update(int index) throws MyException {
+        if (index > grammerRules.size()) {
+            throw new MyException("ce élément n'existe pas");
+        } else {
+            System.out.println("Saisir le nouvelle mot modifieé  :");
+            grammerRules.replace(index, new StringBuffer(sc.nextLine()));
+        }
     }
 
+    @Override
     public void delete(int index) throws MyException {
         if (index > grammerRules.size()) {
             throw new MyException("ce élément n'existe pas");

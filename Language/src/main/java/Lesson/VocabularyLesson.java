@@ -60,17 +60,18 @@ public class VocabularyLesson extends Lesson {
         }
 
     }
-    
+
     @Override
     public void update(int index) throws MyException {
- 
+
         if (index > vocabWords.size()) {
             throw new MyException("ce élément n'existe pas");
         } else {
-        System.out.println("Saisir le nouvelle mot modifieé  :");
-        vocabWords.set(index, sc.next());
+            System.out.println("Saisir le nouvelle mot modifieé  :");
+            vocabWords.set(index, sc.next());
         }
     }
+
     @Override
     public void delete(int index) throws MyException {
         if (index > vocabWords.size()) {
@@ -87,6 +88,7 @@ public class VocabularyLesson extends Lesson {
     /*public void afficher() {
         StreamVocab.forEach(System.out::println);
     }*/
+    // returner un vocab à indice i en utilisant stream
     public Optional<String> find(int index) {
         return StreamVocab.skip(index - 1).findFirst();
     }

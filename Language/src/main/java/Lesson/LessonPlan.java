@@ -45,6 +45,7 @@ public class LessonPlan {
         }
     }
 
+    // remplissage le tableau de vocab ou grammaire d'une lesson
     public void remplissageTab(int index) throws MyException {
         if (index > ListeLesson.size()) {
             throw new MyException("ce élément n'existe pas");
@@ -58,6 +59,7 @@ public class LessonPlan {
         lessonStream.forEach(System.out::println);
     }
 
+    //supprimer une lesson
     public void supprimer(int index) throws MyException {
         if (index > ListeLesson.size()) {
             throw new MyException("ce élément n'existe pas");
@@ -70,6 +72,7 @@ public class LessonPlan {
         }
     }
 
+    //modifier une lesson
     public void modifier(int index) throws MyException {
         Lesson l;
         if (ListeLesson.size() < index) {
@@ -88,7 +91,7 @@ public class LessonPlan {
         }
 
     }
-
+    //retourner les lessons vovaulaire seulement
     public void listeVocabLesson() {
         this.lessonStream = ListeLesson.values().stream();
         lessonStream
@@ -97,6 +100,7 @@ public class LessonPlan {
 
     }
 
+    //retourner le lessons grammaire seulement
     public void ListeGrammaLesson() {
         this.lessonStream = ListeLesson.values().stream();
         lessonStream
