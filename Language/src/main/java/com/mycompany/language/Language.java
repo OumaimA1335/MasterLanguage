@@ -3,7 +3,10 @@
  */
 package com.mycompany.language;
 
-import Lesson.LessonPlan;
+import Exercices.ExerciceManager;
+import Exercices.FillInTheBlanks;
+import Exercices.Question;
+import Exercices.Response;
 
 /**
  *
@@ -12,8 +15,7 @@ import Lesson.LessonPlan;
 public class Language {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-
+/*
         LessonPlan l = new LessonPlan();
         l.ajouterLesson();
         l.afficher();
@@ -54,6 +56,40 @@ public class Language {
         System.out.println("******************");
         System.out.println("Affichage des lessons grammaire !");
         l.ListeGrammaLesson();
+*/
+        /* -------------------------Test Exercice class------------------------------------*/
+        
+        ExerciceManager exerciceManager = new ExerciceManager();
 
+       FillInTheBlanks fillEx1 = new FillInTheBlanks("English Grammar", "Test your grammar skills");
+        System.out.println("Now adding questions for the English Grammar exercise...");
+        fillEx1.addQuestion();
+       // Add another exercice
+        FillInTheBlanks fillEx2 = new FillInTheBlanks("Math Quiz", "Test your math skills");
+        System.out.println("Now adding questions for the Math Quiz exercise...");
+        fillEx2.addQuestion(); 
+
+        // Add exercises to manager
+        exerciceManager.addExercice(fillEx1);
+        exerciceManager.addExercice(fillEx2);
+
+        // Display all exercises
+        exerciceManager.displayExercices();
+
+        // Update the first exercise
+        System.out.println("\nUpdating the first exercise...");
+        FillInTheBlanks updatedEx = new FillInTheBlanks("Advanced English Grammar", "Improve your grammar skills");
+        updatedEx.addQuestion();  // Add questions to the updated exercise interactively
+        exerciceManager.updateExercice(0, updatedEx);
+        // Display all exercises after update
+        exerciceManager.displayExercices();
+
+        // Delete the second exercise
+        System.out.println("\nDeleting the second exercise...");
+        exerciceManager.deleteExercice(1);
+
+        // Display all exercises after deletion
+        exerciceManager.displayExercices();
+        
     }
 }
