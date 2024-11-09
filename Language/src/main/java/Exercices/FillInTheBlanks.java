@@ -25,9 +25,9 @@ public class FillInTheBlanks extends Exercice {
     }
     
     // Check if the provided answer is correct
-    private void checkAnswer(int questionIndex, String answer) {
-        String correctAnswer = correctAnswers.get(questionIndex);
-        if (correctAnswer.equalsIgnoreCase(answer.trim())) {
+    public void checkAnswer(int questionIndex, String answer) {
+        String correctAnswer = correctAnswers.get(questionIndex-1);
+        if (correctAnswer.equalsIgnoreCase(answer)) {
             System.out.println("Correct answer!");
         } else {
             System.out.println("Incorrect answer. The correct answer is: " + correctAnswer);
@@ -84,26 +84,12 @@ public class FillInTheBlanks extends Exercice {
       
     @Override
     public void updateQuestion(int index, Question newQuestion) {
-        if (index >= 0 && index < questions.size()) {
-            // Call the base method to update the question
             super.updateQuestion(index, newQuestion);
-            // Update correctAnswers specific to FillInTheBlanks
-            correctAnswers.set(index, newQuestion.getCorrectResponse().getResponseText());
-        } else {
-            System.out.println("Invalid index. Cannot update question!");
-        }
     }
     
     @Override
     public void deleteQuestion(int index) {
-        if (index >= 0 && index < questions.size()) {
-            // Call the base method to delete the question
             super.deleteQuestion(index);
-            // Remove the corresponding correct answer
-            correctAnswers.remove(index);
-        } else {
-            System.out.println("Invalid index. Cannot delete question!");
-        }
     }
     
     @Override

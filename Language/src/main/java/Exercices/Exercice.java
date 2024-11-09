@@ -94,12 +94,17 @@ public abstract class Exercice implements ExerciceActions{
                  .forEach(q -> System.out.println(q.toString()));
     }
 
-
+    
     public void saisirExercice() {
         System.out.println("Enter exercise Name:");
         this.name = sc.nextLine();
          System.out.print("Objective: ");
         this.objectif = sc.nextLine();
+    }
+    
+    public boolean checkAnswer(Question question, String userAnswer) {
+        // For fill-in-the-blank or text-based responses
+        return question.getCorrectResponse().getResponseText().equalsIgnoreCase(userAnswer);
     }
 
    @Override

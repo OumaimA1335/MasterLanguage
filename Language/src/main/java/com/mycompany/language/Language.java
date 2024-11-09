@@ -4,9 +4,8 @@
 package com.mycompany.language;
 
 import Exercices.ExerciceManager;
-import Exercices.FillInTheBlanks;
-import Exercices.Question;
-import Exercices.Response;
+import Exercices.MultiChoiceExercise;
+import Exercices.TranslationExercise;
 
 /**
  *
@@ -60,7 +59,10 @@ public class Language {
         /* -------------------------Test Exercice class------------------------------------*/
         
         ExerciceManager exerciceManager = new ExerciceManager();
-
+        
+/* ------------------------------------test the Fill In The Blanks Class----------------------------------------------------------
+        
+        
        FillInTheBlanks fillEx1 = new FillInTheBlanks("English Grammar", "Test your grammar skills");
         System.out.println("Now adding questions for the English Grammar exercise...");
         fillEx1.addQuestion();
@@ -90,6 +92,21 @@ public class Language {
 
         // Display all exercises after deletion
         exerciceManager.displayExercices();
+      */  
+/*------------------------------------------Test Multiple-choice Class---------------------------------------------------------*/
+       // MultiChoiceExercise multiChoiceExercise = new MultiChoiceExercise("Geography Quiz", "Test your geography knowledge!");
+
+        //multiChoiceExercise.addQuestion();
         
+        //multiChoiceExercise.startExercice();
+
+ /*------------------------------------------Test Translation Exercice class --------------------------------------------------*/
+ 
+        TranslationExercise transEx = new TranslationExercise("Translation from native language to the learning language or the opposite", "Test your vocab");
+
+        transEx.addQuestion();
+        
+        transEx.startExercice();
+
     }
 }

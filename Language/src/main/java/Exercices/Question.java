@@ -33,6 +33,18 @@ public class Question {
     public Response getCorrectResponse() {
         return correctResponse;
     }
+
+    public void setQuestionText(String questionText) {
+        this.questionText = questionText;
+    }
+
+    public void setPossibleResponses(List<Response> possibleResponses) {
+        this.possibleResponses = possibleResponses;
+    }
+
+    public void setCorrectResponse(Response correctResponse) {
+        this.correctResponse = correctResponse;
+    }
     
      public void addResponse(Response response) {
         possibleResponses.add(response);
