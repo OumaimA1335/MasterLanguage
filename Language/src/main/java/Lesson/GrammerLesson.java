@@ -36,7 +36,7 @@ public class GrammerLesson extends Lesson {
     }
 
     @Override
-    void startLesson() {
+    public void startLesson() {
         System.out.println("La lesson : " + super.getId() + " a commencé ");
         //on peut récupérer la date et l'heure de début les stoker dans le bd , si on va utiliser bd
     }

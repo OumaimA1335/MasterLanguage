@@ -2,8 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Lesson;
+package Levels;
 
+import Lesson.GrammerLesson;
+import Lesson.Lesson;
+import Lesson.VocabularyLesson;
 import com.mycompany.language.MyException;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -13,15 +16,46 @@ import java.util.stream.Stream;
  *
  * @author ASUS
  */
-public class LessonPlan {
+public class Level {
 
-    private HashMap<Integer, Lesson> ListeLesson;
+    private static int id;
+    private String name;
+    private final int minScore = 20;
+    private HashMap<Integer, Lesson> LessonList;
     Scanner sc;
     Stream<Lesson> lessonStream;
 
-    public LessonPlan() {
-        ListeLesson = new HashMap<Integer, Lesson>();
+    public Level(String name) {
+
+        id++;
+        this.name = name;
+        LessonList = new HashMap<Integer, Lesson>();
         sc = new Scanner(System.in);
+
+    }
+
+    public static int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public HashMap<Integer, Lesson> getLessonList() {
+        return LessonList;
+    }
+
+    public void setLessonList(HashMap<Integer, Lesson> LessonList) {
+        this.LessonList = LessonList;
+    }
+
+    public int getMinScore() {
+        return minScore;
     }
 
     public void ajouterLesson() {
@@ -34,40 +68,39 @@ public class LessonPlan {
             if (choix == 1) {
                 l = new VocabularyLesson();
                 l.saisir();
-                ListeLesson.put(l.getId(), l);
+                LessonList.put(l.getId(), l);
             } else {
                 l = new GrammerLesson();
                 l.saisir();
-                ListeLesson.put(l.getId(), l);
+                LessonList.put(l.getId(), l);
             }
             System.out.println("Voulez vous ajoutez une autre lesson");
             resp = sc.next();
         }
     }
-
     // remplissage le tableau de vocab ou grammaire d'une lesson
     public void remplissageTab(int index) throws MyException {
-        if (index > ListeLesson.size()) {
+        if (index > LessonList.size()) {
             throw new MyException("ce élément n'existe pas");
         } else {
-            ListeLesson.get(index).ajouter();
+            LessonList.get(index).ajouter();
         }
     }
 
     public void afficher() {
-        this.lessonStream = ListeLesson.values().stream();
+        this.lessonStream = LessonList.values().stream();
         lessonStream.forEach(System.out::println);
     }
 
     //supprimer une lesson
     public void supprimer(int index) throws MyException {
-        if (index > ListeLesson.size()) {
+        if (index >LessonList.size()) {
             throw new MyException("ce élément n'existe pas");
         } else {
             System.out.println("Voulez vous supprimer ce élement :");
             String answer = sc.next();
             if (answer.equals("oui")) {
-                ListeLesson.remove(index);
+                LessonList.remove(index);
             }
         }
     }
@@ -75,17 +108,17 @@ public class LessonPlan {
     //modifier une lesson
     public void modifier(int index) throws MyException {
         Lesson l;
-        if (ListeLesson.size() < index) {
+        if (LessonList.size() < index) {
             throw new MyException("ce element n existe pas");
         } else {
-            if (ListeLesson.get(index) instanceof VocabularyLesson) {
+            if (LessonList.get(index) instanceof VocabularyLesson) {
                 l = new VocabularyLesson();
                 l.saisir();
-                ListeLesson.replace(index, l);
+                LessonList.replace(index, l);
             } else {
                 l = new GrammerLesson();
                 l.saisir();
-                ListeLesson.replace(index, l);
+                LessonList.replace(index, l);
             }
 
         }
@@ -93,7 +126,7 @@ public class LessonPlan {
     }
     //retourner les lessons vovaulaire seulement
     public void listeVocabLesson() {
-        this.lessonStream = ListeLesson.values().stream();
+        this.lessonStream = LessonList.values().stream();
         lessonStream
                 .filter(lesson -> lesson instanceof VocabularyLesson)
                 .forEach(System.out::println);
@@ -102,10 +135,19 @@ public class LessonPlan {
 
     //retourner le lessons grammaire seulement
     public void ListeGrammaLesson() {
-        this.lessonStream = ListeLesson.values().stream();
+        this.lessonStream = LessonList.values().stream();
         lessonStream
                 .filter(lesson -> lesson instanceof GrammerLesson)
                 .forEach(System.out::println);
+    }
+    public void nbLessonPerLevel()
+    {
+       System.out.println("Le nombre des lessons dans ce  niveau est "+LessonList.size());
+    }
+
+    @Override
+    public String toString() {
+        return "Level{" + "name=" + name + ", minScore=" + minScore + ", LessonList=" + LessonList + '}';
     }
 
 }

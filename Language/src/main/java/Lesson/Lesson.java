@@ -4,6 +4,8 @@
  */
 package Lesson;
 
+import Exercices.ExerciceManager;
+import Progress.LessonProgress;
 import com.mycompany.language.MyException;
 import java.util.Scanner;
 
@@ -16,6 +18,8 @@ public abstract class Lesson {
     private static int id = 0;
     private String title;
     private String description;
+    private ExerciceManager exercices;
+    private LessonProgress LssPrg;
     Scanner Sc;
 
     public Lesson() {
@@ -28,16 +32,17 @@ public abstract class Lesson {
         this.description = description;
         id++;
         Sc = new Scanner(System.in);
+        exercices = new ExerciceManager();
 
     }
 
-    abstract void startLesson();
+    public abstract void startLesson();
 
-    abstract void ajouter();
+    public abstract void ajouter();
 
-    abstract void update(int index) throws MyException;
+    public abstract void update(int index) throws MyException;
 
-    abstract void delete(int index) throws MyException;
+    public abstract void delete(int index) throws MyException;
 
     public void saisir() {
         System.out.println("Veuillez saisir les données de la lesson");
@@ -67,9 +72,12 @@ public abstract class Lesson {
 
     public String getDescription() {
         return description;
-    }
+    } 
 
-    ;
+    public ExerciceManager getEXManager() {
+        return exercices;
+    }
+    
     public String toString() {
         return "the lesson's name :" + title + "\n la description est : " + description;
     }

@@ -1,7 +1,15 @@
+Exercices\Question.class
 Lesson\Lesson.class
-Lesson\LessonPlan.class
 com\mycompany\language\Language.class
-Exercices\Exercice.class
+com\mycompany\language\Langue.class
+Exercices\FillInTheBlanks.class
+Exercices\TranslationExercise.class
 Lesson\GrammerLesson.class
+Exercices\ExerciceActions.class
+Lesson\LessonPlan.class
+Exercices\ExerciceManager.class
+Exercices\Response.class
+Exercices\Exercice.class
 com\mycompany\language\MyException.class
 Lesson\VocabularyLesson.class
+Exercices\MultiChoiceExercise.class
