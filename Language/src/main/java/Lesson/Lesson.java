@@ -4,7 +4,9 @@
  */
 package Lesson;
 
+import Exercices.Exercice;
 import Exercices.ExerciceManager;
+import Exercices.TranslationExercise;
 import Progress.LessonProgress;
 import com.mycompany.language.MyException;
 import java.util.Scanner;
@@ -25,6 +27,7 @@ public abstract class Lesson {
     public Lesson() {
         id++;
         Sc = new Scanner(System.in);
+        exercices = new ExerciceManager();
     }
 
     public Lesson(String title, String description) {
@@ -77,8 +80,16 @@ public abstract class Lesson {
     public ExerciceManager getEXManager() {
         return exercices;
     }
-    
+
+    @Override
     public String toString() {
-        return "the lesson's name :" + title + "\n la description est : " + description;
+        return "Lesson{" + "title=" + title + ", description=" + description + ", exercices=" + exercices + ", LssPrg=" + LssPrg + ", Sc=" + Sc + '}';
+    }
+    
+   
+    public void addExerciceToLesson()
+    {   
+        
+        exercices.addExercise();
     }
 }

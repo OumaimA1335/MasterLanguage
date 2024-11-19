@@ -47,6 +47,7 @@ public class VocabularyLesson extends Lesson {
         super.saisir();
         System.out.println("Remplissage du tableau : ");
         this.ajouter();
+        super.addExerciceToLesson();
     }
 
     @Override

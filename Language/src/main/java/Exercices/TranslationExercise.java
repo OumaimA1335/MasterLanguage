@@ -16,6 +16,11 @@ import java.util.Scanner;
 public class TranslationExercise extends Exercice {
     private Langue langue;
     private List<Question> translationQuestions;
+     public TranslationExercise() {
+        super();
+         this.sc = new Scanner(System.in);
+      
+    }
     public TranslationExercise(String name, String objectif) {
         super(name, objectif);
         this.sc = new Scanner(System.in);

@@ -15,6 +15,9 @@ public class MultiChoiceExercise extends Exercice {
 
     private List<String> correctAnswer;
 
+    public MultiChoiceExercise() {
+        super();
+    }
     public MultiChoiceExercise(String name, String objectif) {
         super(name, objectif);
     }

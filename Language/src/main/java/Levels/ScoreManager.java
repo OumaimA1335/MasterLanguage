@@ -37,7 +37,8 @@ public class ScoreManager {
         // je recupere tous les lessons de ce niveau 
         // je recupere tous les exercices d'une lesson
         // je recupere le note d'un exercice
-        for (int i = 0; i < l.getLessonList().size(); i++) {
+        score = l.getLessonList().get(1).getEXManager().getExercices().get(0).getNote();
+        for (int i = 1; i < l.getLessonList().size(); i++) {
             for (int j = 0; j < l.getLessonList().get(i).getEXManager().getExercices().size(); j++) {
                 score += l.getLessonList().get(i).getEXManager().getExercices().get(j).getNote();
             }
@@ -62,7 +63,7 @@ public class ScoreManager {
     {
       
          System.out.println("Cette lesson a  :" + l.getLessonList().get(index).getEXManager().getExercices().size() + " exercices ");
-        for (int i = 0; i < l.getLessonList().get(index).getEXManager().getExercices().size(); i++) {
+        for (int i = 1; i < l.getLessonList().get(index).getEXManager().getExercices().size(); i++) {
 
            if(l.getLessonList().get(index).getEXManager().getExercices().get(i) instanceof FillInTheBlanks)
            {
@@ -80,10 +81,11 @@ public class ScoreManager {
     }
     public void moyenPerlesson(Level l ,int index)
     { int score =0; 
-        for (int i = 0; i < l.getLessonList().get(index).getEXManager().getExercices().size(); i++) {
+       for (int i = 0; i < l.getLessonList().get(index).getEXManager().getExercices().size(); i++) {
             
             score +=l.getLessonList().get(index).getEXManager().getExercices().get(i).getNote();
         }
+      
         System.out.println("la moyenne des note pour cette lesson est : "+score/l.getLessonList().get(index).getEXManager().getExercices().size());
     }
 

@@ -6,6 +6,11 @@ package com.mycompany.language;
 import Exercices.ExerciceManager;
 import Exercices.MultiChoiceExercise;
 import Exercices.TranslationExercise;
+import Lesson.Lesson;
+import Lesson.VocabularyLesson;
+import Levels.Certificat;
+import Levels.Level;
+import Levels.ScoreManager;
 
 /**
  *
@@ -14,6 +19,21 @@ import Exercices.TranslationExercise;
 public class Language {
 
     public static void main(String[] args) {
+        
+       
+        Level l = new Level("level a1");
+        l.ajouterLesson();
+        l.startLevel();
+        ScoreManager s = new ScoreManager();
+        s.calculScorePerLevel(l);
+        s.moyenPerlesson(l, 1);
+        Certificat c = new Certificat("oumaima","chelly");
+        c.assignCertificate(l);
+        System.out.println(c.toString());
+        /**VocabularyLesson l = new VocabularyLesson();
+        l.saisir();
+        System.out.println( l.toString());**/
+       
 /*
         LessonPlan l = new LessonPlan();
         l.ajouterLesson();
@@ -58,7 +78,7 @@ public class Language {
 */
         /* -------------------------Test Exercice class------------------------------------*/
         
-        ExerciceManager exerciceManager = new ExerciceManager();
+       // ExerciceManager exerciceManager = new ExerciceManager();
         
 /* ------------------------------------test the Fill In The Blanks Class----------------------------------------------------------
         
@@ -102,11 +122,11 @@ public class Language {
 
  /*------------------------------------------Test Translation Exercice class --------------------------------------------------*/
  
-        TranslationExercise transEx = new TranslationExercise("Translation from native language to the learning language or the opposite", "Test your vocab");
+        /*TranslationExercise transEx = new TranslationExercise("Translation from native language to the learning language or the opposite", "Test your vocab");
 
         transEx.addQuestion();
         
-        transEx.startExercice();
+        transEx.startExercice();*/
 
     }
 }

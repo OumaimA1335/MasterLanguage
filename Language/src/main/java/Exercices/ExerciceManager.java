@@ -6,6 +6,7 @@ package Exercices;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -31,7 +32,33 @@ public class ExerciceManager {
         exercices.add(exercice);
         System.out.println("Exercise added successfully!");
     }
-    
+    public void addExercise()
+    {
+        int choix ;
+        Exercice e;
+        System.out.println("Choose the type of exercice you want to add");
+         System.out.println("1: Fill In The Blank");
+         System.out.println("2: Multi Choice");
+         System.out.println("3: Translation");
+        Scanner sc = new Scanner(System.in);
+        choix =sc.nextInt();
+        if(1==choix)
+        {
+         e = new FillInTheBlanks();  
+         e.addQuestion();
+        }else if(choix ==2)
+        {  
+            e = new MultiChoiceExercise();
+             e.addQuestion();
+        }else
+        {
+            e = new TranslationExercise();
+             e.addQuestion();
+        }
+        
+        exercices.add(e);
+        
+    }
      // Update an exercise by index
     public void updateExercice(int index, Exercice newExercice) {
         if (index >= 0 && index < exercices.size()) {

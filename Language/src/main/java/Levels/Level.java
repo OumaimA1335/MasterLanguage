@@ -57,7 +57,14 @@ public class Level {
     public int getMinScore() {
         return minScore;
     }
-
+    
+    public void startLevel()
+    {
+       System.out.println("Hello");
+            LessonList.get(1).startLesson();
+            LessonList.get(1).getEXManager().getExercices().get(0).startExercice();
+        
+    }
     public void ajouterLesson() {
         Lesson l;
         int choix;
